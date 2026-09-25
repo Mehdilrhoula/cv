@@ -1,49 +1,627 @@
+nav {
+    background-color: rgba(0, 32, 91, 0.95);
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 250px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+nav a {
+    display: block;
+    padding: 12px 15px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    white-space: normal;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+nav summary {
+    cursor: pointer;
+    padding: 12px 15px;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+nav summary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
-    color:navy;
+    color: navy;
     margin: 0;
 }
+
+/* =========================
+   ANIMATION GÉNÉRALE
+   ========================= */
+
+section {
+    animation: apparition-scroll linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+
+@keyframes apparition-scroll {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   PRÉSENTATION
+   ========================= */
 
 .presentation {
     background-color: navy;
     color: white;
-    padding: 1px;
+    padding: 80px 20px 60px;
 }
 
 .presentation-contenu {
     margin: 20px auto;
     max-width: 1000px;
-    padding:10px;
+    padding: 10px;
     flex: 1;
 }
 
 .presentation h1 {
     font-size: 60px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
 .presentation p {
     font-size: 18px;
-    line-height: 1.4;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 15px auto;
 }
 
 .presentation-flex {
     display: flex;
     align-items: center;
+    max-width: 1200px;
+    margin: auto;
 }
-.presentation-photo img {
-    width: 100%;
-    max-width: 350px;
-}
+
 .presentation-photo {
-    flex:1;
+    flex: 1;
     text-align: center;
 }
 
+.presentation-photo img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 50%;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.presentation-photo img:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.25);
+}
+
+/* =========================
+   PROJETS
+   ========================= */
+
+#projets {
+    background-color: white;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 80px 20px;
+}
+
+#projets h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+#projets article {
+    background-color: #f5f5f5;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#projets article:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   ANIMATION PENDU
+   ========================= */
+
+.projet-pendu {
+    position: relative;
+    overflow: visible;
+}
+
+.pendu-animation {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 150px;
+    height: 180px;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 10;
+}
+
+.projet-pendu:hover .pendu-animation {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Potence */
+
+.potence {
+    position: absolute;
+    width: 100px;
+    height: 8px;
+    background-color: navy;
+    top: 10px;
+    left: 25px;
+    opacity: 0;
+}
+
+.potence::before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 150px;
+    background-color: navy;
+    left: 0;
+    top: 0;
+}
+
+/* Corde */
+
+.corde {
+    position: absolute;
+    width: 4px;
+    height: 35px;
+    background-color: navy;
+    top: 18px;
+    left: 121px;
+    opacity: 0;
+}
+
+/* Tête */
+
+.tete {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 4px solid navy;
+    border-radius: 50%;
+    top: 48px;
+    left: 106px;
+    opacity: 0;
+}
+
+/* Corps */
+
+.corps {
+    position: absolute;
+    width: 4px;
+    height: 55px;
+    background-color: navy;
+    top: 82px;
+    left: 121px;
+    opacity: 0;
+}
+
+/* Bras */
+
+.bras {
+    position: absolute;
+    width: 55px;
+    height: 4px;
+    background-color: navy;
+    top: 95px;
+    left: 95px;
+    opacity: 0;
+}
+
+/* Jambes */
+
+.jambes {
+    position: absolute;
+    width: 55px;
+    height: 4px;
+    background-color: navy;
+    top: 135px;
+    left: 95px;
+    transform: rotate(90deg);
+    opacity: 0;
+}
+
+/* Apparition progressive du Pendu */
+
+.projet-pendu:hover .potence {
+    animation: apparition 0.4s ease 0s both;
+}
+
+.projet-pendu:hover .corde {
+    animation: apparition 0.4s ease 0.4s both;
+}
+
+.projet-pendu:hover .tete {
+    animation: apparition 0.4s ease 0.8s both;
+}
+
+.projet-pendu:hover .corps {
+    animation: apparition 0.4s ease 1.2s both;
+}
+
+.projet-pendu:hover .bras {
+    animation: apparition 0.4s ease 1.6s both;
+}
+
+.projet-pendu:hover .jambes {
+    animation: apparition 0.4s ease 2s both;
+}
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =========================
+   EXPÉRIENCES
+   ========================= */
+
+#experiences {
+    background-color: #f5f5f5;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+#experiences h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+#experiences article {
+    background-color: white;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#experiences article:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+#experiences article h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#experiences article h4 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+#experiences article p {
+    line-height: 1.5;
+}
+
+/* =========================
+   FORMATION
+   ========================= */
+
+#formation {
+    background-color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+#formation h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+#formation article {
+    background-color: #f5f5f5;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#formation article:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+#formation article h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#formation article h4 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+#formation article p {
+    line-height: 1.5;
+}
+
+/* =========================
+   COMPÉTENCES
+   ========================= */
+
+#competences {
+    background-color: #f5f5f5;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 80px 20px;
+}
+
+#competences h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+#competences article {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#competences article:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+#competences article h3 {
+    font-size: 24px;
+}
+
+#competences article p {
+    line-height: 1.5;
+}
+
+/* =========================
+   CONTACT
+   ========================= */
+
+#contact {
+    background-color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+#contact h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+#contact form {
+    background-color: #f5f5f5;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#contact label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    outline: none;
+    border-color: navy;
+    box-shadow: 0 0 8px rgba(0, 0, 128, 0.2);
+}
+
+#contact textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+#contact button {
+    padding: 12px 30px;
+    background-color: navy;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#contact button:hover {
+    transform: scale(1.05);
+    background-color: #000066;
+}
+
+/* =========================
+   TABLETTE
+   ========================= */
+
 @media (max-width: 768px) {
+
+    nav {
+        width: 180px;
+    }
+
+    .presentation {
+        padding: 70px 15px 40px;
+    }
+
+    .presentation h1 {
+        font-size: 42px;
+    }
+
+    .presentation p {
+        font-size: 16px;
+    }
 
     .presentation-flex {
         flex-direction: column;
         align-items: center;
+    }
+
+    .presentation-photo img {
+        max-width: 250px;
+    }
+
+    section h2 {
+        font-size: 32px;
+    }
+
+    #projets article {
+        width: 100%;
+        max-width: 400px;
+        box-sizing: border-box;
+    }
+
+    #competences article {
+        width: 100%;
+        max-width: 400px;
+        box-sizing: border-box;
+    }
+
+    #experiences article {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #formation article {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #contact form {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* On évite que le Pendu sorte de l'écran */
+
+    .pendu-animation {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 20px auto 0;
+    }
+}
+
+/* =========================
+   TÉLÉPHONE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    nav {
+        width: 120px;
+    }
+
+    nav summary {
+        font-size: 15px;
+    }
+
+    nav a {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .presentation h1 {
+        font-size: 34px;
+    }
+
+    .presentation p {
+        font-size: 15px;
+    }
+
+    #projets,
+    #experiences,
+    #formation,
+    #competences,
+    #contact {
+        padding: 60px 15px;
+    }
+
+    #projets h2,
+    #experiences h2,
+    #formation h2,
+    #competences h2,
+    #contact h2 {
+        font-size: 30px;
     }
 }
