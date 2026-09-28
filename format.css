@@ -49,10 +49,6 @@ body {
     margin: 0;
 }
 
-/* =========================
-   ANIMATION GÉNÉRALE
-   ========================= */
-
 section {
     animation: apparition-scroll linear both;
     animation-timeline: view();
@@ -70,10 +66,6 @@ section {
         transform: translateY(0);
     }
 }
-
-/* =========================
-   PRÉSENTATION
-   ========================= */
 
 .presentation {
     background-color: navy;
@@ -128,9 +120,29 @@ section {
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.25);
 }
 
-/* =========================
-   PROJETS
-   ========================= */
+.liens-profil {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.liens-profil a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: white;
+    color: navy;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.liens-profil a:hover {
+    transform: scale(1.08);
+    background-color: #008cff;
+    color: white;
+}
 
 #projets {
     background-color: white;
@@ -162,10 +174,6 @@ section {
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* =========================
-   ANIMATION PENDU
-   ========================= */
-
 .projet-pendu {
     position: relative;
     overflow: visible;
@@ -188,8 +196,6 @@ section {
     visibility: visible;
 }
 
-/* Potence */
-
 .potence {
     position: absolute;
     width: 100px;
@@ -210,8 +216,6 @@ section {
     top: 0;
 }
 
-/* Corde */
-
 .corde {
     position: absolute;
     width: 4px;
@@ -221,8 +225,6 @@ section {
     left: 121px;
     opacity: 0;
 }
-
-/* Tête */
 
 .tete {
     position: absolute;
@@ -235,8 +237,6 @@ section {
     opacity: 0;
 }
 
-/* Corps */
-
 .corps {
     position: absolute;
     width: 4px;
@@ -246,8 +246,6 @@ section {
     left: 121px;
     opacity: 0;
 }
-
-/* Bras */
 
 .bras {
     position: absolute;
@@ -259,8 +257,6 @@ section {
     opacity: 0;
 }
 
-/* Jambes */
-
 .jambes {
     position: absolute;
     width: 55px;
@@ -271,8 +267,6 @@ section {
     transform: rotate(90deg);
     opacity: 0;
 }
-
-/* Apparition progressive du Pendu */
 
 .projet-pendu:hover .potence {
     animation: apparition 0.4s ease 0s both;
@@ -307,10 +301,6 @@ section {
         opacity: 1;
     }
 }
-
-/* =========================
-   EXPÉRIENCES
-   ========================= */
 
 #experiences {
     background-color: #f5f5f5;
@@ -352,10 +342,6 @@ section {
     line-height: 1.5;
 }
 
-/* =========================
-   FORMATION
-   ========================= */
-
 #formation {
     background-color: white;
     text-align: center;
@@ -396,10 +382,6 @@ section {
     line-height: 1.5;
 }
 
-/* =========================
-   COMPÉTENCES
-   ========================= */
-
 #competences {
     background-color: #f5f5f5;
     text-align: center;
@@ -437,10 +419,6 @@ section {
 #competences article p {
     line-height: 1.5;
 }
-
-/* =========================
-   CONTACT
-   ========================= */
 
 #contact {
     background-color: white;
@@ -509,10 +487,6 @@ section {
     background-color: #000066;
 }
 
-/* =========================
-   TABLETTE
-   ========================= */
-
 @media (max-width: 768px) {
 
     nav {
@@ -571,8 +545,6 @@ section {
         box-sizing: border-box;
     }
 
-    /* On évite que le Pendu sorte de l'écran */
-
     .pendu-animation {
         position: relative;
         top: auto;
@@ -581,10 +553,6 @@ section {
         margin: 20px auto 0;
     }
 }
-
-/* =========================
-   TÉLÉPHONE
-   ========================= */
 
 @media (max-width: 600px) {
 
