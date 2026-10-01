@@ -1,3 +1,7 @@
+/* ========================= */
+/* MENU */
+/* ========================= */
+
 nav {
     background-color: rgba(0, 32, 91, 0.95);
     padding: 10px;
@@ -43,6 +47,11 @@ nav summary:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+
+/* ========================= */
+/* GÉNÉRAL */
+/* ========================= */
+
 html {
     scroll-behavior: smooth;
 }
@@ -61,6 +70,7 @@ section {
 }
 
 @keyframes apparition-scroll {
+
     from {
         opacity: 0;
         transform: translateY(50px);
@@ -70,7 +80,13 @@ section {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
+
+
+/* ========================= */
+/* PRÉSENTATION */
+/* ========================= */
 
 .presentation {
     background-color: navy;
@@ -149,6 +165,11 @@ section {
     color: white;
 }
 
+
+/* ========================= */
+/* PROJETS */
+/* ========================= */
+
 #projets {
     background-color: white;
     text-align: center;
@@ -180,6 +201,11 @@ section {
     transform: scale(1.05) translateY(-5px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
+
+
+/* ========================= */
+/* PENDU */
+/* ========================= */
 
 .projet-pendu {
     position: relative;
@@ -307,6 +333,7 @@ section {
 }
 
 @keyframes apparition {
+
     from {
         opacity: 0;
     }
@@ -314,7 +341,13 @@ section {
     to {
         opacity: 1;
     }
+
 }
+
+
+/* ========================= */
+/* EXPÉRIENCES */
+/* ========================= */
 
 #experiences {
     background-color: #f5f5f5;
@@ -356,6 +389,1085 @@ section {
     line-height: 1.5;
 }
 
+
+/* ========================= */
+/* CHARI.CO */
+/* ========================= */
+
+.experience-chari {
+    position: relative;
+    overflow: hidden;
+
+    view-timeline-name: --chari-scroll;
+    view-timeline-axis: block;
+}
+
+.chari-animation {
+    position: relative;
+    height: 150px;
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.chari-route {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 25px;
+    height: 5px;
+    background-color: navy;
+}
+
+.chari-route::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -7px;
+    height: 3px;
+    background-color: #008cff;
+}
+
+.chari-fournisseur {
+    position: absolute;
+    left: 3%;
+    bottom: 29px;
+    width: 45px;
+    height: 45px;
+    border: 3px solid navy;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.entrepot {
+    position: absolute;
+    width: 30px;
+    height: 22px;
+    left: 5px;
+    bottom: 5px;
+    background-color: navy;
+}
+
+.entrepot::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: -12px;
+    width: 0;
+    height: 0;
+    border-left: 19px solid transparent;
+    border-right: 19px solid transparent;
+    border-bottom: 12px solid navy;
+}
+
+.chari-colis {
+    position: absolute;
+    left: 20%;
+    bottom: 33px;
+    width: 30px;
+    height: 30px;
+    background-color: #d99a4a;
+    border: 3px solid navy;
+    box-sizing: border-box;
+
+    animation:
+        chari-colis-position linear both,
+        chari-colis-opacity linear both;
+
+    animation-timeline: --chari-scroll;
+
+    animation-range:
+        entry 0% exit 55%,
+        entry 0% exit 60%;
+}
+
+.colis-ruban {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background-color: navy;
+}
+
+.chari-camion {
+    position: absolute;
+    left: 45%;
+    bottom: 30px;
+    width: 65px;
+    height: 30px;
+    background-color: navy;
+
+    animation: chari-camion-scroll linear both;
+    animation-timeline: --chari-scroll;
+    animation-range: entry 25% exit 80%;
+}
+
+.camion-cabine {
+    position: absolute;
+    right: -18px;
+    bottom: 0;
+    width: 20px;
+    height: 22px;
+    background-color: #008cff;
+    border: 3px solid navy;
+    box-sizing: border-box;
+}
+
+.camion-roue {
+    position: absolute;
+    bottom: -7px;
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    border: 3px solid navy;
+    border-radius: 50%;
+}
+
+.roue-1 {
+    left: 8px;
+}
+
+.roue-2 {
+    right: 8px;
+}
+
+.chari-commerce {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 3px solid navy;
+    background-color: white;
+    box-sizing: border-box;
+    opacity: 0;
+}
+
+.commerce-1 {
+    right: 3%;
+    bottom: 29px;
+    opacity: 1;
+}
+
+.commerce-2 {
+    right: 18%;
+    bottom: 29px;
+
+    animation: commerce-apparition linear both;
+    animation-timeline: --chari-scroll;
+    animation-range: entry 35% exit 65%;
+}
+
+.commerce-3 {
+    right: 31%;
+    bottom: 29px;
+
+    animation: commerce-apparition linear both;
+    animation-timeline: --chari-scroll;
+    animation-range: entry 45% exit 75%;
+}
+
+.commerce-4 {
+    right: 43%;
+    bottom: 29px;
+
+    animation: commerce-apparition linear both;
+    animation-timeline: --chari-scroll;
+    animation-range: entry 55% exit 85%;
+}
+
+.commerce-5 {
+    right: 55%;
+    bottom: 29px;
+
+    animation: commerce-apparition linear both;
+    animation-timeline: --chari-scroll;
+    animation-range: entry 65% exit 95%;
+}
+
+.commerce-toit {
+    position: absolute;
+    top: -15px;
+    left: -5px;
+    width: 54px;
+    height: 15px;
+    background-color: navy;
+}
+
+.commerce-porte {
+    position: absolute;
+    bottom: 0;
+    left: 17px;
+    width: 14px;
+    height: 27px;
+    background-color: #008cff;
+    border: 2px solid navy;
+}
+
+@keyframes commerce-apparition {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.6);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+@keyframes chari-colis-position {
+
+    from {
+        left: 20%;
+    }
+
+    to {
+        left: 45%;
+    }
+
+}
+
+@keyframes chari-colis-opacity {
+
+    0% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+@keyframes chari-camion-scroll {
+
+    from {
+        left: 45%;
+    }
+
+    to {
+        left: 82%;
+    }
+
+}
+
+
+/* ========================= */
+/* CMA CGM */
+/* ========================= */
+
+.experience-cma {
+    position: relative;
+    overflow: hidden;
+
+    view-timeline-name: --cma-scroll;
+    view-timeline-axis: block;
+}
+
+.cma-animation {
+    position: relative;
+    height: 180px;
+    margin-top: 30px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.cma-mer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 85px;
+    background-color: #3FA9F5;
+    overflow: hidden;
+}
+
+.cma-vague {
+    position: absolute;
+    width: 120px;
+    height: 20px;
+    border-top: 4px solid #ffffff;
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: vagues 3s linear infinite;
+}
+
+.vague-1 {
+    left: 5%;
+    bottom: 45px;
+}
+
+.vague-2 {
+    left: 35%;
+    bottom: 25px;
+}
+
+.vague-3 {
+    left: 65%;
+    bottom: 50px;
+}
+
+.vague-4 {
+    left: 85%;
+    bottom: 20px;
+}
+
+.cma-port {
+    position: absolute;
+    bottom: 45px;
+    width: 90px;
+    height: 75px;
+    z-index: 5;
+}
+
+.cma-port-depart {
+    left: 2%;
+}
+
+.cma-port-arrivee {
+    right: 2%;
+}
+
+.cma-quai {
+    position: absolute;
+    bottom: 0;
+    width: 90px;
+    height: 15px;
+    background-color: #051039;
+}
+
+.cma-grue {
+    position: absolute;
+    left: 20px;
+    bottom: 15px;
+    width: 7px;
+    height: 65px;
+    background-color: #051039;
+}
+
+.cma-grue::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 55px;
+    height: 7px;
+    background-color: #E20101;
+}
+
+.cma-grue::after {
+    content: "";
+    position: absolute;
+    left: 50px;
+    top: 0;
+    width: 5px;
+    height: 35px;
+    background-color: #051039;
+}
+
+.cma-conteneurs {
+    position: absolute;
+    bottom: 15px;
+    left: 45px;
+    display: flex;
+    gap: 3px;
+    align-items: flex-end;
+}
+
+.cma-conteneurs span {
+    display: block;
+    width: 14px;
+    height: 18px;
+    background-color: #E20101;
+    border: 2px solid #051039;
+}
+
+.cma-port-arrivee .cma-conteneurs span:nth-child(2) {
+    height: 25px;
+}
+
+.cma-port-arrivee .cma-conteneurs span:nth-child(3) {
+    height: 21px;
+}
+
+.cma-port-arrivee .cma-conteneurs span:nth-child(4) {
+    height: 28px;
+}
+
+.cma-bateau {
+    position: absolute;
+    left: 25%;
+    bottom: 55px;
+    width: 190px;
+    height: 75px;
+    z-index: 10;
+
+    animation: bateau-voyage linear both;
+    animation-timeline: --cma-scroll;
+    animation-range: entry 15% exit 85%;
+}
+
+.cma-coque {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 190px;
+    height: 28px;
+    background-color: #051039;
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        90% 100%,
+        12% 100%
+    );
+}
+
+.cma-coque span {
+    position: absolute;
+    left: 55px;
+    top: 5px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.cma-coque::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 5px;
+    height: 4px;
+    background-color: #E20101;
+}
+
+.cma-pont {
+    position: absolute;
+    left: 25px;
+    top: 25px;
+    width: 145px;
+    height: 8px;
+    background-color: #ffffff;
+    border: 3px solid #051039;
+}
+
+.cma-conteneurs-bateau {
+    position: absolute;
+    left: 32px;
+    top: 3px;
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    width: 125px;
+}
+
+.cma-conteneurs-bateau span {
+    display: block;
+    width: 20px;
+    height: 16px;
+    background-color: #E20101;
+    border: 2px solid #051039;
+}
+
+.cma-conteneurs-bateau span:nth-child(2),
+.cma-conteneurs-bateau span:nth-child(5) {
+    background-color: #051039;
+}
+
+.cma-cheminee {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    width: 20px;
+    height: 28px;
+    background-color: #E20101;
+    border: 3px solid #051039;
+}
+
+.cma-clients {
+    position: absolute;
+    right: 12%;
+    bottom: 45px;
+    width: 100px;
+    height: 55px;
+}
+
+.cma-client {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background-color: #ffffff;
+    border: 3px solid #051039;
+    opacity: 0;
+}
+
+.client-1 {
+    left: 0;
+    bottom: 0;
+
+    animation: client-cma-apparition linear both;
+    animation-timeline: --cma-scroll;
+    animation-range: entry 65% exit 85%;
+}
+
+.client-2 {
+    left: 35px;
+    bottom: 15px;
+
+    animation: client-cma-apparition linear both;
+    animation-timeline: --cma-scroll;
+    animation-range: entry 70% exit 90%;
+}
+
+.client-3 {
+    left: 70px;
+    bottom: 0;
+
+    animation: client-cma-apparition linear both;
+    animation-timeline: --cma-scroll;
+    animation-range: entry 75% exit 95%;
+}
+
+@keyframes bateau-voyage {
+
+    from {
+        left: 25%;
+        transform: translateY(0);
+    }
+
+    20% {
+        left: 30%;
+        transform: translateY(-3px);
+    }
+
+    50% {
+        left: 50%;
+        transform: translateY(2px);
+    }
+
+    80% {
+        left: 68%;
+        transform: translateY(-3px);
+    }
+
+    to {
+        left: 76%;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes client-cma-apparition {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+@keyframes vagues {
+
+    from {
+        transform: translateX(-20px);
+    }
+
+    to {
+        transform: translateX(80px);
+    }
+
+}
+
+
+/* ========================= */
+/* HBI INTERNATIONAL */
+/* ========================= */
+
+.experience-hbi {
+    position: relative;
+    overflow: hidden;
+
+    view-timeline-name: --hbi-scroll;
+    view-timeline-axis: block;
+}
+
+.hbi-animation {
+    position: relative;
+    height: 180px;
+    margin-top: 30px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+
+/* ========================= */
+/* LIGNE PRINCIPALE */
+/* ========================= */
+
+.hbi-ligne {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: 38px;
+    height: 3px;
+    background-color: #006B73;
+}
+
+.hbi-ligne::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -5px;
+    border-top: 2px dashed #B8D8DA;
+}
+
+
+/* ========================= */
+/* DOSSIER APPEL D'OFFRES */
+/* ========================= */
+
+.hbi-dossier {
+    position: absolute;
+    left: 7%;
+    bottom: 55px;
+    width: 42px;
+    height: 50px;
+
+    background-color: #ffffff;
+    border: 3px solid #006B73;
+    border-radius: 4px;
+
+    z-index: 5;
+
+    animation: hbi-dossier-scroll linear both;
+    animation-timeline: --hbi-scroll;
+    animation-range: entry 0% exit 35%;
+}
+
+.hbi-dossier::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 9px;
+    width: 24px;
+    height: 3px;
+    background-color: #00A6A6;
+    box-shadow:
+        0 9px 0 #00A6A6,
+        0 18px 0 #00A6A6;
+}
+
+.hbi-dossier::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 4px;
+    width: 16px;
+    height: 8px;
+    background-color: #006B73;
+    border-radius: 3px 3px 0 0;
+}
+
+
+/* ========================= */
+/* ACHETEUR HBI */
+/* ========================= */
+
+.hbi-acheteur {
+    position: absolute;
+    left: 43%;
+    bottom: 38px;
+    width: 55px;
+    height: 65px;
+
+    z-index: 8;
+
+    animation: hbi-acheteur-apparition linear both;
+    animation-timeline: --hbi-scroll;
+    animation-range: entry 15% exit 45%;
+}
+
+.hbi-acheteur-tete {
+    position: absolute;
+    top: 0;
+    left: 18px;
+
+    width: 20px;
+    height: 20px;
+
+    background-color: #ffffff;
+    border: 3px solid #006B73;
+    border-radius: 50%;
+}
+
+.hbi-acheteur-corps {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+
+    width: 35px;
+    height: 40px;
+
+    background-color: #006B73;
+
+    border-radius: 18px 18px 4px 4px;
+}
+
+.hbi-acheteur-dossier {
+    position: absolute;
+    right: -13px;
+    bottom: 5px;
+
+    width: 25px;
+    height: 30px;
+
+    background-color: #00A6A6;
+
+    border: 2px solid #006B73;
+
+    transform: rotate(-8deg);
+}
+
+
+/* ========================= */
+/* TRANSPORTEURS */
+/* ========================= */
+
+.hbi-transporteurs {
+    position: absolute;
+    left: 62%;
+    right: 7%;
+    bottom: 38px;
+
+    height: 95px;
+}
+
+
+/* ========================= */
+/* PETITS BATEAUX */
+/* ========================= */
+
+.hbi-transporteur {
+    position: absolute;
+
+    width: 55px;
+    height: 40px;
+
+    opacity: 0;
+
+    animation: hbi-transporteur-apparition linear both;
+    animation-timeline: --hbi-scroll;
+}
+
+.hbi-transporteur-1 {
+    left: 0;
+    bottom: 0;
+
+    animation-range: entry 30% exit 55%;
+}
+
+.hbi-transporteur-2 {
+    left: 40%;
+    bottom: 20px;
+
+    animation-range: entry 40% exit 65%;
+}
+
+.hbi-transporteur-3 {
+    right: 0;
+    bottom: 0;
+
+    animation-range: entry 50% exit 75%;
+}
+
+.hbi-bateau-coque {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 55px;
+    height: 18px;
+
+    background-color: #006B73;
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        85% 100%,
+        15% 100%
+    );
+}
+
+.hbi-bateau-pont {
+    position: absolute;
+    left: 13px;
+    bottom: 18px;
+
+    width: 28px;
+    height: 13px;
+
+    background-color: #00A6A6;
+
+    border: 2px solid #006B73;
+}
+
+.hbi-bateau-conteneur {
+    position: absolute;
+    left: 18px;
+    bottom: 31px;
+
+    width: 18px;
+    height: 10px;
+
+    background-color: #F2C94C;
+
+    border: 2px solid #006B73;
+}
+
+
+/* ========================= */
+/* OFFRES */
+/* ========================= */
+
+.hbi-offre {
+    position: absolute;
+
+    width: 45px;
+    height: 22px;
+
+    background-color: #ffffff;
+
+    border: 2px solid #006B73;
+
+    border-radius: 5px;
+
+    text-align: center;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    color: #006B73;
+
+    opacity: 0;
+
+    z-index: 10;
+}
+
+.hbi-offre-1 {
+    left: 0;
+    bottom: 48px;
+
+    animation: hbi-offre-apparition linear both;
+    animation-timeline: --hbi-scroll;
+    animation-range: entry 40% exit 60%;
+}
+
+.hbi-offre-2 {
+    left: 40%;
+    bottom: 68px;
+
+    animation: hbi-offre-apparition linear both;
+    animation-timeline: --hbi-scroll;
+    animation-range: entry 50% exit 70%;
+}
+
+.hbi-offre-3 {
+    right: 0;
+    bottom: 48px;
+
+    animation: hbi-offre-apparition linear both;
+    animation-timeline: --hbi-scroll;
+    animation-range: entry 60% exit 80%;
+}
+
+
+/* ========================= */
+/* OFFRE RETENUE */
+/* ========================= */
+
+.hbi-selection {
+    position: absolute;
+
+    right: 6%;
+    bottom: 82px;
+
+    width: 65px;
+    height: 30px;
+
+    background-color: #E8F7F7;
+
+    border: 3px solid #00A6A6;
+
+    border-radius: 6px;
+
+    color: #006B73;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+
+    z-index: 15;
+
+    animation: hbi-selection-apparition linear both;
+    animation-timeline: --hbi-scroll;
+    animation-range: entry 65% exit 90%;
+}
+
+
+/* ========================= */
+/* CONTENEUR FINAL */
+/* ========================= */
+
+.hbi-conteneur-final {
+    position: absolute;
+
+    right: 3%;
+    bottom: 35px;
+
+    width: 35px;
+    height: 35px;
+
+    background-color: #00A6A6;
+
+    border: 3px solid #006B73;
+
+    opacity: 0;
+
+    z-index: 10;
+
+    animation: hbi-conteneur-apparition linear both;
+    animation-timeline: --hbi-scroll;
+    animation-range: entry 75% exit 100%;
+}
+
+.hbi-conteneur-final::before {
+    content: "";
+
+    position: absolute;
+
+    left: 8px;
+    top: 8px;
+
+    width: 13px;
+    height: 13px;
+
+    border: 3px solid #ffffff;
+}
+
+
+/* ========================= */
+/* ANIMATIONS HBI */
+/* ========================= */
+
+@keyframes hbi-dossier-scroll {
+
+    from {
+        left: 7%;
+        opacity: 1;
+    }
+
+    to {
+        left: 40%;
+        opacity: 0;
+    }
+
+}
+
+@keyframes hbi-acheteur-apparition {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+@keyframes hbi-transporteur-apparition {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.6);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+@keyframes hbi-offre-apparition {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes hbi-selection-apparition {
+
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+@keyframes hbi-conteneur-apparition {
+
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+/* ========================= */
+/* FORMATION */
+/* ========================= */
+
 #formation {
     background-color: white;
     text-align: center;
@@ -396,6 +1508,11 @@ section {
     line-height: 1.5;
 }
 
+
+/* ========================= */
+/* COMPÉTENCES */
+/* ========================= */
+
 #competences {
     background-color: #f5f5f5;
     text-align: center;
@@ -434,6 +1551,11 @@ section {
 #competences article p {
     line-height: 1.5;
 }
+
+
+/* ========================= */
+/* CONTACT */
+/* ========================= */
 
 #contact {
     background-color: white;
@@ -477,8 +1599,8 @@ section {
 #contact input:focus,
 #contact textarea:focus {
     outline: none;
-    border-color: navy;
-    box-shadow: 0 0 8px rgba(0, 0, 128, 0.2);
+    border-color: #051039;
+    box-shadow: 0 0 8px rgba(5, 16, 57, 0.2);
 }
 
 #contact textarea {
@@ -488,7 +1610,7 @@ section {
 
 #contact button {
     padding: 12px 30px;
-    background-color: navy;
+    background-color: #051039;
     color: white;
     border: none;
     border-radius: 8px;
@@ -499,8 +1621,13 @@ section {
 
 #contact button:hover {
     transform: scale(1.05);
-    background-color: #000066;
+    background-color: #E20101;
 }
+
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
 
 @media (max-width: 768px) {
 
@@ -560,6 +1687,9 @@ section {
         box-sizing: border-box;
     }
 
+
+    /* PENDU */
+
     .projet-pendu {
         height: 170px;
     }
@@ -579,7 +1709,99 @@ section {
         transform-origin: bottom center;
         margin: 0;
     }
+
+
+    /* CHARI */
+
+    .chari-animation {
+        height: 115px;
+    }
+
+    .chari-fournisseur {
+        transform: scale(0.8);
+        transform-origin: bottom left;
+    }
+
+    .chari-commerce {
+        transform: scale(0.75);
+        transform-origin: bottom right;
+    }
+
+    .chari-camion {
+        transform: scale(0.8);
+        transform-origin: bottom left;
+    }
+
+    .chari-colis {
+        transform: scale(0.8);
+        transform-origin: bottom left;
+    }
+
+
+    /* CMA */
+
+    .cma-animation {
+        height: 150px;
+    }
+
+    .cma-bateau {
+        transform: scale(0.75);
+        transform-origin: bottom left;
+    }
+
+    .cma-port {
+        transform: scale(0.8);
+        transform-origin: bottom center;
+    }
+
+    .cma-clients {
+        transform: scale(0.8);
+        transform-origin: bottom right;
+    }
+
+
+    /* HBI */
+
+    .hbi-animation {
+        height: 150px;
+    }
+
+    .hbi-dossier {
+        transform: scale(0.8);
+        transform-origin: bottom left;
+    }
+
+    .hbi-acheteur {
+        transform: scale(0.8);
+        transform-origin: bottom center;
+    }
+
+    .hbi-transporteurs {
+        transform: scale(0.8);
+        transform-origin: bottom right;
+    }
+
+    .hbi-offre {
+        transform: scale(0.8);
+        transform-origin: center;
+    }
+
+    .hbi-selection {
+        transform: scale(0.8);
+        transform-origin: bottom right;
+    }
+
+    .hbi-conteneur-final {
+        transform: scale(0.8);
+        transform-origin: bottom right;
+    }
+
 }
+
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
 
 @media (max-width: 600px) {
 
@@ -620,6 +1842,9 @@ section {
         font-size: 30px;
     }
 
+
+    /* PENDU */
+
     .projet-pendu {
         height: 165px;
     }
@@ -631,4 +1856,95 @@ section {
     .pendu-animation {
         transform: translateX(-50%) scale(0.7);
     }
+
+
+    /* CHARI */
+
+    .chari-animation {
+        height: 100px;
+    }
+
+    .chari-fournisseur {
+        transform: scale(0.65);
+        transform-origin: bottom left;
+    }
+
+    .chari-commerce {
+        transform: scale(0.55);
+        transform-origin: bottom right;
+    }
+
+    .chari-camion {
+        transform: scale(0.65);
+        transform-origin: bottom left;
+    }
+
+    .chari-colis {
+        transform: scale(0.65);
+        transform-origin: bottom left;
+    }
+
+
+    /* CMA */
+
+    .cma-animation {
+        height: 125px;
+    }
+
+    .cma-bateau {
+        transform: scale(0.55);
+        transform-origin: bottom left;
+    }
+
+    .cma-port {
+        transform: scale(0.6);
+        transform-origin: bottom center;
+    }
+
+    .cma-clients {
+        transform: scale(0.6);
+        transform-origin: bottom right;
+    }
+
+    .cma-vague {
+        width: 80px;
+    }
+
+
+    /* HBI */
+
+    .hbi-animation {
+        height: 125px;
+    }
+
+    .hbi-dossier {
+        transform: scale(0.65);
+        transform-origin: bottom left;
+    }
+
+    .hbi-acheteur {
+        transform: scale(0.65);
+        transform-origin: bottom center;
+    }
+
+    .hbi-transporteurs {
+        transform: scale(0.6);
+        transform-origin: bottom right;
+    }
+
+    .hbi-offre {
+        transform: scale(0.65);
+        transform-origin: center;
+    }
+
+    .hbi-selection {
+        transform: scale(0.65);
+        transform-origin: bottom right;
+    }
+
+    .hbi-conteneur-final {
+        transform: scale(0.65);
+        transform-origin: bottom right;
+    }
+
 }
